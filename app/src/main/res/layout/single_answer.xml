@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/single_ans"
+    android:orientation="vertical"
+    android:paddingBottom="15dp"
+    android:layout_margin="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:text="ANSWER:"
+        android:textStyle="bold"
+        android:textColor="#009688"
+        android:textSize="18sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+<!--    <TextView-->
+<!--        android:id="@+id/table_heading"-->
+<!--        android:text="Heading"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textColor="?android:colorForeground"-->
+<!--        android:paddingStart="20dp"-->
+<!--        android:textSize="18sp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"/>-->
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/ans_tv"
+        android:text="Sample Answer"
+        android:paddingLeft="20dp"
+        android:textSize="18sp"
+        android:textColor="?android:colorForeground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/single_objective"
+    android:orientation="vertical"
+    android:layout_margin="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/page_num_tv_o"
+        android:text="Page Number"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="?android:colorForeground"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/ques_num_tv_o"
+        android:text="Question"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="?android:colorForeground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/ques_tv_o"
+        android:text="Sample Question"
+        android:textColor="?android:colorForeground"
+        android:paddingLeft="20dp"
+        android:textSize="18sp"
+        android:paddingBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/option1"
+        android:text="(a) Sample Option 1"
+        android:textSize="18sp"
+        android:textColor="?android:colorForeground"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/option2"
+        android:text="(b) Sample Option 2"
+        android:textSize="18sp"
+        android:textColor="?android:colorForeground"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/option3"
+        android:text="(c) Sample Option 3"
+        android:textSize="18sp"
+        android:textColor="?android:colorForeground"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/option4"
+        android:text="(d) Sample Option 4"
+        android:textSize="18sp"
+        android:textColor="?android:colorForeground"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:text="ANSWER:"
+        android:textStyle="bold"
+        android:textColor="#009688"
+        android:textSize="18sp"
+        android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/correct_ans_ind"
+        android:text="Sample Answer"
+        android:paddingLeft="20dp"
+        android:textSize="18sp"
+        android:textColor="?android:colorForeground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/explanation"
+        android:text="Sample Answer"
+        android:paddingLeft="20dp"
+        android:textSize="18sp"
+        android:textColor="?android:colorForeground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

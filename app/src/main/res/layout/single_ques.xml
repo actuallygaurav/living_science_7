@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/single_ques"
+    android:orientation="vertical"
+    android:layout_margin="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/page_num_tv"
+        android:text="Page Number"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="?android:colorForeground"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/ques_num_tv"
+        android:text="Question"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="?android:colorForeground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/ques_tv"
+        android:text="Sample Question"
+        android:textColor="?android:colorForeground"
+        android:paddingLeft="20dp"
+        android:textSize="18sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
