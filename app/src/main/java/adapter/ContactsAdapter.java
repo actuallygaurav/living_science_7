@@ -20,7 +20,6 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
 
     private List<String> mContacts;
 
-
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     public static final String CHAPTER_NUMBER = "CHAPTER_NUMBER";
 
