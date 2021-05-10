@@ -1,4 +1,4 @@
-package com.learn.livingscienceclass7.model;
+package com.learn.livingscienceclass6.model;
 
 public class Answer{
     public String heading;

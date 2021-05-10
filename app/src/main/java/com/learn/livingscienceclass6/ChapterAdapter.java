@@ -1,10 +1,9 @@
-package com.learn.livingscienceclass7;
+package com.learn.livingscienceclass6;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.learn.livingscienceclass7.model.Item;
+import com.learn.livingscienceclass6.model.Item;
 
 import java.util.List;
 

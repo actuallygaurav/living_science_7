@@ -1,4 +1,4 @@
-package com.learn.livingscienceclass7;
+package com.learn.livingscienceclass6;
 
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;

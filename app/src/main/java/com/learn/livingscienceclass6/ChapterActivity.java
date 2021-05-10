@@ -1,4 +1,4 @@
-package com.learn.livingscienceclass7;
+package com.learn.livingscienceclass6;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.learn.livingscienceclass7.model.RootModel;
+import com.learn.livingscienceclass6.model.RootModel;
 
 import retrofit2.Call;
 import retrofit2.Callback;
