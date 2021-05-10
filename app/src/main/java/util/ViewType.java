@@ -1,4 +1,4 @@
-package com.learn.livingscienceclass7;
+package util;
 
 public class ViewType {
     public final static int QUESTION = 1;

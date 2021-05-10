@@ -8,28 +8,40 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
+import util.Constants;
+import view.ChapterIndexFragment;
+import view.MessageFragment;
+
+
+
 
 public class MainActivity extends AppCompatActivity {
 
-    private final static String MESSAGE_FRAGMENT_TAG = "message_frag";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Fragment fragment = new ChaptersFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container, fragment); // give your fragment container id in first parameter
-        //transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
-        transaction.commit();
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, new ChapterIndexFragment())
+                .commit();
+
+        // load Ad
+        AdView mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
     }
 
@@ -46,17 +58,16 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.top_star_icon:
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                //builder.setCancelable(true);
-                builder.setTitle("Are you sure?")
-                        .setMessage("Please take a moment to rate it.")
+                builder.setTitle(Constants.ARE_YOU_SURE)
+                        .setMessage(Constants.PLAY_STORE_DIALOG_MSG)
                         .setCancelable(true)
-                        .setPositiveButton("Google Play", new DialogInterface.OnClickListener() {
+                        .setPositiveButton(Constants.YES_SURE, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 rateApp();
                             }
                         })
-                        .setNegativeButton("No, Thanks", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(Constants.NO_THANKS, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                             }
@@ -66,31 +77,26 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.message_icon:
-                Fragment prevFrag = getSupportFragmentManager().findFragmentByTag(MESSAGE_FRAGMENT_TAG);
-                if(prevFrag == null) {
-                    Fragment fragment = new MessageFragment();
-                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.fragment_container, fragment, MESSAGE_FRAGMENT_TAG); // give your fragment container id in first parameter
-                    transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
-                    transaction.commit();
+                Fragment messageFrag = getSupportFragmentManager().findFragmentByTag(Constants.MESSAGE_FRAGMENT_TAG);
+                if(messageFrag == null) {
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment_container, new MessageFragment(), Constants.MESSAGE_FRAGMENT_TAG)
+                            .addToBackStack(null)
+                            .commit();
                     return true;
                 }
-                return false;
         }
-        return true;
+        return false;
     }
 
-    /*
-     * Start with rating the app
-     * Determine if the Play Store is installed on the device
-     *
-     * */
+
     public void rateApp() {
         try {
-            Intent rateIntent = rateIntentForUrl("market://details");
+            Intent rateIntent = rateIntentForUrl(Constants.MARKET_DETAILS);
             startActivity(rateIntent);
         } catch (ActivityNotFoundException e) {
-            Intent rateIntent = rateIntentForUrl("https://play.google.com/store/apps/details");
+            Intent rateIntent = rateIntentForUrl(Constants.PLAY_STORE_URL);
             startActivity(rateIntent);
         }
     }

@@ -1,5 +1,6 @@
-package com.learn.livingscienceclass7;
+package view;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -11,7 +12,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
@@ -19,12 +19,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.learn.livingscienceclass7.R;
 
 import java.util.Date;
+
+import model.MessageDTO;
 
 
 public class MessageFragment extends Fragment {
 
+    private ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,6 +39,13 @@ public class MessageFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("Sending...");
+
+        getActivity().setTitle("Help us to improve");
+
         final TextInputLayout nameEt = view.findViewById(R.id.name_et);
         final TextInputLayout emailEt = view.findViewById(R.id.email_et);
         final TextInputLayout msgEt = view.findViewById(R.id.feedback_et);
@@ -54,7 +65,8 @@ public class MessageFragment extends Fragment {
                 } else if(TextUtils.isEmpty(msg)) {
                     Toast.makeText(getContext(), "Feedback field is empty", Toast.LENGTH_SHORT).show();
                 } else {
-                    saveData(new MessageDTO(name, email, msg, new Date(System.currentTimeMillis()).toString()));
+                    progressDialog.show();
+                    saveData(new MessageDTO(name, email, msg, new Date(System.currentTimeMillis()).toString(), "Living Science class 7"));
                 }
             }
         });
@@ -70,20 +82,20 @@ public class MessageFragment extends Fragment {
                 myRef.setValue(messageDTO);
                 Toast.makeText(getContext(), "Message has been sent successfully !!", Toast.LENGTH_LONG).show();
 
-                Fragment fragment = new ChaptersFragment();
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                transaction.remove(MessageFragment.this);
-                transaction.add(R.id.fragment_container, fragment);
-                //transaction.replace(R.id.fragment_container, fragment); // give your fragment container id in first parameter
-                //transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
-
-                transaction.commit();
+                getActivity().getSupportFragmentManager().popBackStack();
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, new ChapterIndexFragment())
+                        .commit();
+                progressDialog.dismiss();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(getContext(), "Message send failed !", Toast.LENGTH_LONG).show();
+                progressDialog.dismiss();
             }
         });
     }
+
 }

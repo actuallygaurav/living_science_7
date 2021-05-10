@@ -1,4 +1,4 @@
-package com.learn.livingscienceclass7;
+package client;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

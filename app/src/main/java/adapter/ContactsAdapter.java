@@ -1,52 +1,60 @@
-package com.learn.livingscienceclass7;
+package adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.learn.livingscienceclass7.R;
 
 import java.util.List;
 
+import view.ChapterDetailsFragment;
+
 public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
 
-    // ... constructor and member variables
     private List<String> mContacts;
-    private Context context;
+
+
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     public static final String CHAPTER_NUMBER = "CHAPTER_NUMBER";
 
-    // Pass in the contact array into the constructor
-    public ContactsAdapter(List<String> contacts, Context context) {
+
+    public ContactsAdapter(List<String> contacts) {
         mContacts = contacts;
-        this.context = context;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        // Your holder should contain a member variable
-        // for any view that will be set as you render a row
-        public TextView nameTextView;
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        TextView nameTextView;
 
-        // We also create a constructor that accepts the entire item row
-        // and does the view lookups to find each subview
-        public ViewHolder(View itemView) {
+        public ViewHolder(final View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.contact_name);
-            itemView.setOnClickListener(this);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AppCompatActivity activity = (AppCompatActivity) v.getContext();
+
+                    activity.getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment_container,
+                                    ChapterDetailsFragment.newInstance(
+                                            mContacts.get(getLayoutPosition()),
+                                            getLayoutPosition())
+                            )
+                            .addToBackStack(null)
+                            .commit();
+
+                }
+            });
         }
 
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(context, ChapterActivity.class);
-            intent.putExtra(EXTRA_MESSAGE, mContacts.get(getLayoutPosition()));
-            intent.putExtra(CHAPTER_NUMBER, getLayoutPosition());
-            context.startActivity(intent);
-        }
     }
 
     @NonNull
@@ -59,7 +67,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String contact = mContacts.get(position);
+        String contact = "Chapter " + (position + 1) + " - " + mContacts.get(position);
         TextView textView = holder.nameTextView;
         textView.setText(contact);
     }

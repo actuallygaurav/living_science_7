@@ -1,4 +1,4 @@
-package com.learn.livingscienceclass7.model;
+package model;
 
 public class FillBlank {
     public String page_number;

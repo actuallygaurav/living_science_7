@@ -1,10 +1,9 @@
-package com.learn.livingscienceclass7;
+package adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,9 +11,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.learn.livingscienceclass7.model.Item;
+import com.learn.livingscienceclass7.R;
 
 import java.util.List;
+
+import model.Item;
+import util.ViewType;
 
 /**
  * class
@@ -25,11 +27,11 @@ import java.util.List;
 
 public class ChapterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<Item> list;
+    private List<Item> chapterList;
     private Context context;
 
-    public ChapterAdapter(List<Item> list, Context context) {
-        this.list = list;
+    public ChapterAdapter(List<Item> chapterList, Context context) {
+        this.chapterList = chapterList;
         this.context = context;
     }
 
@@ -63,7 +65,7 @@ public class ChapterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        Item curr = list.get(position);
+        Item curr = chapterList.get(position);
 
         switch (holder.getItemViewType()) {
             case ViewType.QUESTION:
@@ -122,7 +124,7 @@ public class ChapterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public int getItemViewType(int position) {
-        Item item = list.get(position);
+        Item item = chapterList.get(position);
         if(item.getQuestion() != null) {
             return ViewType.QUESTION;
         } else if(item.getAnswer() != null) {
@@ -141,11 +143,11 @@ public class ChapterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return chapterList.size();
     }
 
     // 1
-    public class ViewHolder1Ques extends RecyclerView.ViewHolder {
+    public static class ViewHolder1Ques extends RecyclerView.ViewHolder {
         TextView pageNumTV;
         TextView quesNumTV;
         TextView quesTV;
@@ -160,7 +162,7 @@ public class ChapterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     // 2
-    public class ViewHolder2Ans extends RecyclerView.ViewHolder {
+    public static class ViewHolder2Ans extends RecyclerView.ViewHolder {
         TextView ansTV;
         //TextView heading;
         public ViewHolder2Ans(@NonNull View itemView) {
@@ -171,7 +173,7 @@ public class ChapterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     // 3
-    public class ViewHolder3Objective extends RecyclerView.ViewHolder {
+    public static class ViewHolder3Objective extends RecyclerView.ViewHolder {
         TextView pageNumTV;
         TextView quesNumTV;
         TextView quesTV;
@@ -200,7 +202,7 @@ public class ChapterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     // 4
-    public class ViewHolder4Fill extends RecyclerView.ViewHolder {
+    public static class ViewHolder4Fill extends RecyclerView.ViewHolder {
         TextView pageNumTV;
         TextView quesNumTV;
         TextView quesTV;
@@ -216,7 +218,7 @@ public class ChapterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     // 5
-    public class ViewHolder5Img extends RecyclerView.ViewHolder {
+    public static class ViewHolder5Img extends RecyclerView.ViewHolder {
         ImageView imageView;
         public ViewHolder5Img(@NonNull View itemView) {
             super(itemView);
@@ -225,7 +227,7 @@ public class ChapterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     // 6
-    public class ViewHolder6Inv extends RecyclerView.ViewHolder {
+    public static class ViewHolder6Inv extends RecyclerView.ViewHolder {
         public ViewHolder6Inv(@NonNull View itemView) {
             super(itemView);
         }

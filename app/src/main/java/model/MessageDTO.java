@@ -1,16 +1,18 @@
-package com.learn.livingscienceclass7;
+package model;
 
 public class MessageDTO {
     private String name;
     private String email;
     private String msg;
     private String timeDate;
+    private String appName;
 
-    public MessageDTO(String name, String email, String msg, String timeDate) {
+    public MessageDTO(String name, String email, String msg, String timeDate, String appName) {
         this.name = name;
         this.email = email;
         this.msg = msg;
         this.timeDate = timeDate;
+        this.appName = appName;
     }
 
     public String getName() {
@@ -43,5 +45,13 @@ public class MessageDTO {
 
     public void setTimeDate(String timeDate) {
         this.timeDate = timeDate;
+    }
+
+    public String getAppName() {
+        return appName;
+    }
+
+    public void setAppName(String appName) {
+        this.appName = appName;
     }
 }
