@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.learn.livingscienceclass7.R;
+import com.learn.gauravmath10ncert.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,6 +23,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 import adapter.ContactsAdapter;
+import util.Constants;
 
 
 public class ChapterIndexFragment extends Fragment {
@@ -44,7 +45,7 @@ public class ChapterIndexFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        getActivity().setTitle("Living Science Class 7");
+        getActivity().setTitle(Constants.APP_NAME);
 
         RecyclerView rvContacts = view.findViewById(R.id.rvContacts);
         ArrayList<String> chapterName = new ArrayList<>();

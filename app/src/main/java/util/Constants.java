@@ -1,6 +1,7 @@
 package util;
 
 public final class Constants {
+    public final static String APP_NAME = "NCERT class 10 math solution";
     // MainActivity
     public final static String MESSAGE_FRAGMENT_TAG = "message_frag";
     public final static String ARE_YOU_SURE = "Are you sure?";

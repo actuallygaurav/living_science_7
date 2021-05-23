@@ -1,4 +1,4 @@
-package com.learn.livingscienceclass7;
+package com.learn.gauravmath10ncert;
 
 import org.junit.Test;
 

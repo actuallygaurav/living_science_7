@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.learn.livingscienceclass7.R;
+import com.learn.gauravmath10ncert.R;
 
 import java.util.List;
 

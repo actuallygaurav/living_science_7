@@ -19,9 +19,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.learn.livingscienceclass7.R;
-
-import java.util.Date;
+import com.learn.gauravmath10ncert.R;
 
 import model.MessageDTO;
 
@@ -66,7 +64,7 @@ public class MessageFragment extends Fragment {
                     Toast.makeText(getContext(), "Feedback field is empty", Toast.LENGTH_SHORT).show();
                 } else {
                     progressDialog.show();
-                    saveData(new MessageDTO(name, email, msg, new Date(System.currentTimeMillis()).toString(), "Living Science class 7"));
+                    //saveData(new MessageDTO(name, email, msg, new Date(System.currentTimeMillis()).toString(), "Living Science class 7"));
                 }
             }
         });
