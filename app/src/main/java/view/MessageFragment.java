@@ -14,12 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.learn.livingscienceclass7.R;
+import com.gaurav.livingscience.R;
 
 import java.util.Date;
 
@@ -66,36 +61,44 @@ public class MessageFragment extends Fragment {
                     Toast.makeText(getContext(), "Feedback field is empty", Toast.LENGTH_SHORT).show();
                 } else {
                     progressDialog.show();
-                    saveData(new MessageDTO(name, email, msg, new Date(System.currentTimeMillis()).toString(), "Living Science class 7"));
+                    saveData(new MessageDTO(name, email, msg, new Date(System.currentTimeMillis()).toString(), "Living Science class 6"));
                 }
             }
         });
     }
 
     private void saveData(final MessageDTO messageDTO) {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference myRef = database.getReference(String.valueOf(System.currentTimeMillis()));
-
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                myRef.setValue(messageDTO);
-                Toast.makeText(getContext(), "Message has been sent successfully !!", Toast.LENGTH_LONG).show();
-
-                getActivity().getSupportFragmentManager().popBackStack();
+        Toast.makeText(getContext(), "Message has been sent successfully !!", Toast.LENGTH_LONG).show();
+        getActivity().getSupportFragmentManager().popBackStack();
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fragment_container, new ChapterIndexFragment())
                         .commit();
                 progressDialog.dismiss();
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getContext(), "Message send failed !", Toast.LENGTH_LONG).show();
-                progressDialog.dismiss();
-            }
-        });
+        //FirebaseDatabase database = FirebaseDatabase.getInstance();
+        //final DatabaseReference myRef = database.getReference(String.valueOf(System.currentTimeMillis()));
+
+//        myRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                //myRef.setValue(messageDTO);
+//                Toast.makeText(getContext(), "Message has been sent successfully !!", Toast.LENGTH_LONG).show();
+//
+//                getActivity().getSupportFragmentManager().popBackStack();
+//                getActivity().getSupportFragmentManager()
+//                        .beginTransaction()
+//                        .replace(R.id.fragment_container, new ChapterIndexFragment())
+//                        .commit();
+//                progressDialog.dismiss();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                Toast.makeText(getContext(), "Message send failed !", Toast.LENGTH_LONG).show();
+//                progressDialog.dismiss();
+//            }
+//        });
     }
 
 }

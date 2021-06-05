@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.learn.livingscienceclass7.R;
+import com.gaurav.livingscience.R;
 
 import java.util.List;
 

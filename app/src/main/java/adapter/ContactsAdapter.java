@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.learn.livingscienceclass7.R;
+import com.gaurav.livingscience.R;
 
 import java.util.List;
 
@@ -19,6 +19,7 @@ import view.ChapterDetailsFragment;
 public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
 
     private List<String> mContacts;
+
 
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     public static final String CHAPTER_NUMBER = "CHAPTER_NUMBER";

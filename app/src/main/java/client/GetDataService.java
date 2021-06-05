@@ -7,6 +7,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface GetDataService {
-    @GET("/823369a5f4c1129a4c31/{chapterIndex}")
+    @GET("/2d0d29b1cfee91b0b605/{chapterIndex}")
     Call<RootModel> getWeather(@Path("chapterIndex") int chapterIndex);
 }

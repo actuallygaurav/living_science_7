@@ -10,5 +10,7 @@ public final class Constants {
     public final static String MARKET_DETAILS = "market://details";
     public final static String PLAY_STORE_URL = "https://play.google.com/store/apps/details";
 
+    public final static String MAIN_ACTIVITY_APP_NAME_HEADER = "Living Science Class 6";
+
     // App specific
 }
